@@ -1,6 +1,6 @@
 {
   "name": "@niamori/json-manipulator",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A library let you edit json text while keeping the original formatting as much as possible.",
   "author": "NiaMori <Hellc5261@gmail.com>",
   "homepage": "https://github.com/niamori/json-manipulator#readme",
