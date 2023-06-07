@@ -1,7 +1,6 @@
 import type { TSConfigJSON } from 'types-tsconfig'
 import type { PackageJSON } from 'types-pkg-json'
 
-import type { Draft } from 'immer'
 import { manipulateJson } from './manipulate'
 
 interface Presets {
@@ -12,17 +11,16 @@ interface Presets {
 export const manipulate: {
   [T in keyof Presets]: typeof manipulateJson<T>
 } = new Proxy(Object.create(null), {
-  get: () => {
-    return (text: string, recipe: (dr: Draft<any>) => void) => {
-      return manipulateJson(text, recipe)
-    }
-  },
+  get: () => manipulateJson,
 })
 
 if (import.meta.vitest) {
   const { describe, it, expect } = import.meta.vitest
   describe('manipulate presets', () => {
-    describe.each(Object.keys(manipulate) as Array<keyof typeof manipulate>)('%s', (preset) => {
+    describe.each([
+      'tsconfig.json',
+      'package.json',
+    ] as const)('%s', (preset) => {
       it('should be identical to `manipulateJson`', () => {
         expect(manipulate[preset]).toBe(manipulateJson)
       })
