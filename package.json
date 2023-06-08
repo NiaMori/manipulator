@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "A library let you edit json text while keeping the original formatting as much as possible.",
   "author": "NiaMori <Hellc5261@gmail.com>",
+  "license": "MIT",
   "homepage": "https://github.com/niamori/json-manipulator#readme",
   "repository": {
     "type": "git",
@@ -14,23 +15,33 @@
   "keywords": [
     "json"
   ],
-  "license": "MIT",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
-  "types": "./dist/index.d.ts",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "exports": {
-    ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js",
-      "types": "./dist/index.d.ts"
-    }
-  },
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch"
+  },
+  "dependencies": {
+    "@humanwhocodes/momoa": "^3.0.0",
+    "@niamori/utils": "^0.2.2",
+    "detect-indent": "^7.0.1",
+    "dice-coefficient": "^2.1.1",
+    "immer": "^10.0.2",
+    "magic-regexp": "^0.7.0",
+    "types-pkg-json": "^1.2.1",
+    "types-tsconfig": "^2.0.2",
+    "zod": "^3.21.4"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.39.5",
@@ -46,16 +57,5 @@
     "typescript": "^5.1.3",
     "vitest": "^0.32.0",
     "zx": "^7.2.2"
-  },
-  "dependencies": {
-    "@humanwhocodes/momoa": "^3.0.0",
-    "@niamori/utils": "^0.2.2",
-    "detect-indent": "^7.0.1",
-    "dice-coefficient": "^2.1.1",
-    "immer": "^10.0.2",
-    "magic-regexp": "^0.7.0",
-    "types-pkg-json": "^1.2.1",
-    "types-tsconfig": "^2.0.2",
-    "zod": "^3.21.4"
   }
 }
