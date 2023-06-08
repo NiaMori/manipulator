@@ -30,7 +30,8 @@
   ],
   "scripts": {
     "build": "tsup",
-    "dev": "tsup --watch"
+    "dev": "tsup --watch",
+    "lint": "eslint ."
   },
   "dependencies": {
     "@humanwhocodes/momoa": "^3.0.0",
