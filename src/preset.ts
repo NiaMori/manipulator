@@ -9,7 +9,7 @@ interface Presets {
 }
 
 export const manipulate: {
-  [T in keyof Presets]: typeof manipulateJson<T>
+  [T in keyof Presets]: typeof manipulateJson<Presets[T]>
 } = new Proxy(Object.create(null), {
   get: () => manipulateJson,
 })
