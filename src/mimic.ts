@@ -170,7 +170,7 @@ export function mimic(value: unknown, example: string) {
                 return ', '
               }
             } else {
-              const [mBeg, mEnd] = getLocationRange(eNode.elements[1].value)
+              const [mBeg, _mEnd] = getLocationRange(eNode.elements[1].value)
 
               return betweenIE(lEnd, mBeg, indentColumns + indent.length)
             }
@@ -179,7 +179,7 @@ export function mimic(value: unknown, example: string) {
           const seperator = getSeperator()
 
           function getTail() {
-            const [rBeg, rEnd] = getLocationRange(eNode.elements[eNode.elements.length - 1].value)
+            const [_rBeg, rEnd] = getLocationRange(eNode.elements[eNode.elements.length - 1].value)
 
             return betweenIE(rEnd, end)
           }
@@ -219,7 +219,7 @@ export function mimic(value: unknown, example: string) {
         } else {
           const [beg, end] = getLocationRange(eNode)
           const [lNameBeg, lNameEnd] = getLocationRange(eNode.members[0].name)
-          const [lValueBeg, lValueEnd] = getLocationRange(eNode.members[0].value)
+          const [lValueBeg, _lValueEnd] = getLocationRange(eNode.members[0].value)
 
           function getHeading() {
             return betweenIE(beg, lNameBeg)
@@ -234,14 +234,14 @@ export function mimic(value: unknown, example: string) {
           const colons = getColons()
 
           function getTail() {
-            const [rValueBeg, rValueEnd] = getLocationRange(eNode.members[eNode.members.length - 1].value)
+            const [_rValueBeg, rValueEnd] = getLocationRange(eNode.members[eNode.members.length - 1].value)
 
             return betweenIE(rValueEnd, end)
           }
 
           const tail = getTail()
 
-          const members = vNode.members.map((vMember, i) => {
+          const members = vNode.members.map((vMember) => {
             return {
               name: vMember.name.value,
               quotedName: `"${vMember.name.value}"`,
@@ -279,8 +279,8 @@ export function mimic(value: unknown, example: string) {
 
           function inferSeperator(aName: string, bName: string) {
             function getSeperatorAfter(idx: number) {
-              const [aValueBeg, aValueEnd] = getLocationRange(eNode.members[idx].value)
-              const [bNameBeg, bNameEnd] = getLocationRange(eNode.members[idx + 1].name)
+              const [_aValueBeg, aValueEnd] = getLocationRange(eNode.members[idx].value)
+              const [bNameBeg, _bNameEnd] = getLocationRange(eNode.members[idx + 1].name)
 
               return betweenIE(aValueEnd, bNameBeg, indentColumns + indent.length)
             }
