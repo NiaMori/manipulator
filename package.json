@@ -1,7 +1,7 @@
 {
   "name": "@niamori/json-manipulator",
   "type": "module",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "packageManager": "pnpm@8.6.10",
   "description": "A library let you edit json text while keeping the original formatting as much as possible.",
   "author": "NiaMori <Hellc5261@gmail.com> (https://github.com/niamori)",
