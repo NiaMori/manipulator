@@ -301,6 +301,8 @@ export function mimic(value: unknown, example: string) {
                 return getSeperatorAfter(aIdx)
               }
             } else {
+              // TODO: implenment smarter seperator inference through emptyline-spaced members
+
               // aIdx + 1 should exist here, since we have bIdx > aIdx
               return getSeperatorAfter(aIdx)
             }
