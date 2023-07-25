@@ -301,7 +301,13 @@ export function mimic(value: unknown, example: string) {
                 return getSeperatorAfter(aIdx)
               }
             } else {
-              // TODO: implenment smarter seperator inference through emptyline-spaced members
+              const [aNameBeg, _aNameEnd] = getLocationRange(eNode.members[aIdx].name)
+              const [_bValueBeg, bValueEnd] = getLocationRange(eNode.members[bIdx].value)
+
+              const lines = eMatrix.slice(aNameBeg.line - 1, bValueEnd.line)
+              if (lines.some(line => line.trim() === '')) {
+                return ',\n\n'
+              }
 
               // aIdx + 1 should exist here, since we have bIdx > aIdx
               return getSeperatorAfter(aIdx)
