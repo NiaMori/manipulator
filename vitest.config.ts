@@ -1,10 +1,9 @@
-import * as node_path from 'node:path'
 import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
   resolve: {
     alias: [
-      { find: '@', replacement: node_path.resolve(__dirname, 'src') },
+      { find: '@niamori/json-manipulator', replacement: new URL('src', import.meta.url).pathname },
     ],
   },
 

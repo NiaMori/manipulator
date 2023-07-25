@@ -3,7 +3,7 @@ import type { Draft } from 'immer'
 import { produce } from 'immer'
 import { $ } from 'zx'
 import { z } from 'zod'
-import { manipulateJson } from '@'
+import { manipulateJson } from '@niamori/json-manipulator/manipulate'
 
 expect.addSnapshotSerializer({
   test: value => typeof value === 'string',

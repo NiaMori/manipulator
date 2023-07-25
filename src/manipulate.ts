@@ -1,6 +1,6 @@
 import type { Draft } from 'immer'
 import { produce } from 'immer'
-import { mimic } from './mimic'
+import { mimic } from '@niamori/json-manipulator/mimic'
 
 export function manipulateJson<T = unknown>(text: string, recipe: (dr: Draft<T>) => void): string {
   const value = JSON.parse(text) as T

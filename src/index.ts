@@ -1,2 +1,2 @@
-export { manipulateJson } from './manipulate'
-export { manipulate } from './preset'
+export { manipulateJson } from '@niamori/json-manipulator/manipulate'
+export { manipulate } from '@niamori/json-manipulator/preset'

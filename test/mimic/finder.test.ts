@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { parse } from '@humanwhocodes/momoa'
 import { None } from '@niamori/utils'
-import { referenceNodeFinder } from '@/mimic'
+import { referenceNodeFinder } from '@niamori/json-manipulator/mimic'
 
 describe('finder', () => {
   describe.each(

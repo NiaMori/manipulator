@@ -1,7 +1,7 @@
 import type { TSConfigJSON } from 'types-tsconfig'
 import type { PackageJSON } from 'types-pkg-json'
 
-import { manipulateJson } from './manipulate'
+import { manipulateJson } from '@niamori/json-manipulator/manipulate'
 
 interface Presets {
   'tsconfig.json': TSConfigJSON

@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises'
 import { describe, expect, it } from 'vitest'
-import { kase } from './manipulate.utils'
+import { kase } from './manipulate.utils.js'
 
 describe('manipulate', () => {
   // TODO: add more tests besides the sanity check
@@ -9,16 +9,14 @@ describe('manipulate', () => {
     const tsconfig = await fs.readFile(new URL('../../tsconfig.json', import.meta.url).pathname, 'utf8')
 
     expect(await kase(tsconfig, (dr) => {
-      dr.compilerOptions.paths['@niamori.nope/core'] = ['./pkg/core']
-      dr.compilerOptions.paths['@niamori.nope/core/*'] = ['./pkg/core/*']
+      dr.include ||= []
+      dr.include.push('nope')
     })).toMatchInlineSnapshot(`
       --- OLD_JSON
       +++ NEW_JSON
-      @@ -20 +20,3 @@
-      -      "@/*": ["./src/*"]
-      +      "@/*": ["./src/*"],
-      +      "@niamori.nope/core": ["./pkg/core"],
-      +      "@niamori.nope/core/*": ["./pkg/core/*"]
+      @@ -28 +28 @@
+      -  "include": ["src", "rollup.config.ts", "vitest.config.ts", "test"]
+      +  "include": ["src", "rollup.config.ts", "vitest.config.ts", "test", "nope"]
     `)
   })
 })

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { kase } from './manipulate.utils'
+import { kase } from './manipulate.utils.js'
 
 describe('manipulate', () => {
   describe('from chatgpt', () => {
