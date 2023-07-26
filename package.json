@@ -1,82 +1,22 @@
 {
-  "name": "@niamori/json-manipulator",
+  "name": "@niamori/manipulator.monorepo",
   "type": "module",
-  "version": "0.1.1",
+  "version": "0.0.0",
+  "private": true,
   "packageManager": "pnpm@8.6.10",
-  "description": "A library let you edit json text while keeping the original formatting as much as possible.",
   "author": "NiaMori <Hellc5261@gmail.com> (https://github.com/niamori)",
   "license": "MIT",
-  "homepage": "https://github.com/niamori/json-manipulator",
-  "repository": {
-    "type": "git",
-    "url": "git+https://https://github.com/niamori/json-manipulator.git"
-  },
-  "bugs": {
-    "url": "https://github.com/niamori/json-manipulator/issues"
-  },
-  "keywords": [
-    "json"
-  ],
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org",
-    "access": "public"
-  },
-  "exports": {
-    ".": {
-      "require": "./dist/esm/src/index.js",
-      "import": "./dist/esm/src/index.js"
-    },
-    "./*": {
-      "dev:@niamori/json-manipulator": "./src/*.js",
-      "require": "./dist/esm/src/*.js",
-      "import": "./dist/esm/src/*.js"
-    }
-  },
-  "main": "./dist/esm/src/index.js",
-  "module": "./dist/esm/src/index.js",
-  "types": "index.d.ts",
-  "typesVersions": {
-    "*": {
-      "*": [
-        "./dist/esm/src/*"
-      ]
-    }
-  },
-  "files": [
-    "dist"
-  ],
   "scripts": {
-    "build": "rollup --config rollup.config.ts --configPlugin typescript",
-    "dev": "pnpm build --watch",
-    "test": "vitest --run --coverage",
-    "lint": "eslint .",
+    "build": "nx run-many --target=build",
+    "dev": "nx run-many --target=dev --output-style=stream",
+    "lint": "nx run-many --target=lint",
+    "test": "nx run-many --target=test",
     "bump": "bumpp --no-push",
-    "release": "pnpm run bump && pnpm run build && npm publish"
-  },
-  "dependencies": {
-    "@humanwhocodes/momoa": "^3.0.0",
-    "@niamori/utils": "^0.4.0",
-    "detect-indent": "^7.0.1",
-    "dice-coefficient": "^2.1.1",
-    "immer": "^10.0.2",
-    "magic-regexp": "^0.7.0",
-    "types-pkg-json": "^1.2.1",
-    "types-tsconfig": "^2.0.2",
-    "zod": "^3.21.4"
+    "release": "pnpm bump && pnpm build && npm run publish"
   },
   "devDependencies": {
     "@niamori/eslint-config": "^0.0.3",
-    "@niamori/rollup-config": "^0.1.2",
-    "@types/commonmark": "^0.27.6",
-    "@types/node": "^20.4.4",
-    "@vitest/coverage-v8": "^0.33.0",
-    "@vitest/ui": "^0.33.0",
     "bumpp": "^9.1.1",
-    "commonmark": "^0.30.0",
-    "eslint": "^8.45.0",
-    "fast-glob": "^3.2.12",
-    "rollup": "^3.26.3",
-    "vitest": "^0.33.0",
-    "zx": "^7.2.2"
+    "nx": "^16.5.5"
   }
 }
