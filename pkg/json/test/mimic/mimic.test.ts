@@ -7,7 +7,7 @@ import { Parser as MarkdownParser } from 'commonmark'
 import { None, type Option, Some } from '@niamori/utils'
 import { z } from 'zod'
 import { charIn, createRegExp, digit, exactly, maybe, oneOrMore, word } from 'magic-regexp'
-import { mimic } from '@niamori/json-manipulator/mimic'
+import { mimic } from '@niamori/manipulator.json/mimic'
 
 interface Case {
   id: string

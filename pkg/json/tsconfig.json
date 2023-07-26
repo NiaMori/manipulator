@@ -7,7 +7,7 @@
     "rootDir": ".",
     "moduleResolution": "NodeNext",
     "types": ["node", "vitest/importMeta"],
-    "customConditions": ["dev:@niamori/json-manipulator"],
+    "customConditions": ["dev:@niamori/manipulator.json"],
 
     "allowJs": false,
 
