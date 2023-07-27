@@ -1,7 +1,7 @@
 {
   "name": "@niamori/manipulator.core",
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.2.0",
   "author": "NiaMori <Hellc5261@gmail.com> (https://github.com/niamori)",
   "license": "MIT",
   "homepage": "https://github.com/niamori/manipulator/pkg/core",
