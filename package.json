@@ -11,12 +11,13 @@
     "dev": "nx run-many --target=dev --output-style=stream",
     "lint": "nx run-many --target=lint",
     "test": "nx run-many --target=test",
-    "bump": "bumpp --no-push",
-    "release": "pnpm bump && pnpm build && npm run publish"
+    "bump": "bumpp package.json ./pkg/*/package.json --no-push --execute 'syncpack fix-mismatches --filter @niamori/shivvie.*'",
+    "release": "pnpm bump && pnpm build && pnpm m exec npm publish"
   },
   "devDependencies": {
     "@niamori/eslint-config": "^0.0.3",
     "bumpp": "^9.1.1",
-    "nx": "^16.5.5"
+    "nx": "^16.5.5",
+    "syncpack": "^10.7.3"
   }
 }
