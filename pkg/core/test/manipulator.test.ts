@@ -10,7 +10,7 @@ describe('manipulator', () => {
   describe('json', () => {
     // json manipulations should be extensively tested in @niamori/manipulator.json
     it.each(['package.json', 'tsconfig.json', 'json'] as const)('should pass the sanity check', (type) => {
-      const tor = manipulator('json')
+      const tor = manipulator(type)
 
       const input = '{ "hello": "world" }'
       const output = '{ "hello": "noworld" }'
