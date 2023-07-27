@@ -2,9 +2,16 @@
   "name": "@niamori/manipulator.core",
   "type": "module",
   "version": "0.0.0",
-  "private": true,
   "author": "NiaMori <Hellc5261@gmail.com> (https://github.com/niamori)",
   "license": "MIT",
+  "homepage": "https://github.com/niamori/manipulator/pkg/core",
+  "repository": {
+    "type": "git",
+    "url": "git+https://https://github.com/niamori/manipulator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/niamori/manipulator/issues"
+  },
   "exports": {
     ".": {
       "require": "./dist/esm/src/index.js",
