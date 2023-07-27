@@ -18,6 +18,61 @@ importers:
         specifier: ^16.5.5
         version: 16.5.5
 
+  pkg/core:
+    dependencies:
+      '@niamori/manipulator.json':
+        specifier: 0.0.0
+        version: link:../json
+      immer:
+        specifier: ^10.0.2
+        version: 10.0.2
+      ramda:
+        specifier: ^0.29.0
+        version: 0.29.0
+      ts-pattern:
+        specifier: ^5.0.4
+        version: 5.0.4
+      ts-toolbelt:
+        specifier: ^9.6.0
+        version: 9.6.0
+      types-pkg-json:
+        specifier: ^1.2.1
+        version: 1.2.1
+      types-tsconfig:
+        specifier: ^2.0.2
+        version: 2.0.2
+    devDependencies:
+      '@niamori/eslint-config':
+        specifier: ^0.0.3
+        version: 0.0.3(eslint@8.45.0)(typescript@5.1.6)
+      '@niamori/rollup-config':
+        specifier: ^0.1.2
+        version: 0.1.2(typescript@5.1.6)
+      '@types/node':
+        specifier: ^20.4.4
+        version: 20.4.4
+      '@types/ramda':
+        specifier: ^0.29.3
+        version: 0.29.3
+      '@vitest/coverage-v8':
+        specifier: ^0.33.0
+        version: 0.33.0(vitest@0.33.0)
+      '@vitest/ui':
+        specifier: ^0.33.0
+        version: 0.33.0(vitest@0.33.0)
+      eslint:
+        specifier: ^8.45.0
+        version: 8.45.0
+      rollup:
+        specifier: ^3.26.3
+        version: 3.26.3
+      typescript:
+        specifier: ^5.1.6
+        version: 5.1.6
+      vitest:
+        specifier: ^0.33.0
+        version: 0.33.0(@vitest/ui@0.33.0)
+
   pkg/json:
     dependencies:
       '@humanwhocodes/momoa':
@@ -66,9 +121,6 @@ importers:
       '@vitest/ui':
         specifier: ^0.33.0
         version: 0.33.0(vitest@0.33.0)
-      bumpp:
-        specifier: ^9.1.1
-        version: 9.1.1
       commonmark:
         specifier: ^0.30.0
         version: 0.30.0
@@ -171,6 +223,7 @@ packages:
   /@babel/code-frame@7.22.5:
     resolution: {integrity: sha512-Xmwn266vad+6DAqEB2A6V/CcZVp62BbwVmcOJc2RPuwih1kw02TjQvWVWlcKGbBPd+8/0V5DEkOcizRGYsspYQ==}
     engines: {node: '>=6.9.0'}
+    requiresBuild: true
     dependencies:
       '@babel/highlight': 7.22.5
     dev: true
@@ -178,6 +231,7 @@ packages:
   /@babel/helper-validator-identifier@7.22.5:
     resolution: {integrity: sha512-aJXu+6lErq8ltp+JhkJUfk1MTGyuA4v7f3pA+BJ5HLfNC6nAQ0Cpi9uOquUj8Hehg0aUiHzWQbOVJGao6ztBAQ==}
     engines: {node: '>=6.9.0'}
+    requiresBuild: true
     dev: true
 
   /@babel/highlight@7.22.5:
@@ -814,6 +868,12 @@ packages:
 
   /@types/ps-tree@1.1.2:
     resolution: {integrity: sha512-ZREFYlpUmPQJ0esjxoG1fMvB2HNaD3z+mjqdSosZvd3RalncI9NEur73P8ZJz4YQdL64CmV1w0RuqoRUlhQRBw==}
+    dev: true
+
+  /@types/ramda@0.29.3:
+    resolution: {integrity: sha512-Yh/RHkjN0ru6LVhSQtTkCRo6HXkfL9trot/2elzM/yXLJmbLm2v6kJc8yftTnwv1zvUob6TEtqI2cYjdqG3U0Q==}
+    dependencies:
+      types-ramda: 0.29.4
     dev: true
 
   /@types/semver@7.5.0:
@@ -1852,6 +1912,7 @@ packages:
   /escape-string-regexp@1.0.5:
     resolution: {integrity: sha512-vbRorB5FUQWvla16U8R/qgaFIya2qGzwDrNmCZuYKrbdSUMG6I1ZCGQRefkRVhuOkIGVne7BQ35DSfo1qvJqFg==}
     engines: {node: '>=0.8.0'}
+    requiresBuild: true
     dev: true
 
   /escape-string-regexp@4.0.0:
@@ -2521,7 +2582,7 @@ packages:
       fs.realpath: 1.0.0
       inflight: 1.0.6
       inherits: 2.0.4
-      minimatch: 3.0.5
+      minimatch: 3.1.2
       once: 1.4.0
       path-is-absolute: 1.0.1
     dev: true
@@ -2913,6 +2974,7 @@ packages:
 
   /js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
+    requiresBuild: true
     dev: true
 
   /js-yaml@3.14.1:
@@ -3087,7 +3149,7 @@ packages:
     resolution: {integrity: sha512-hXdUTZYIVOt1Ex//jAQi+wTZZpUpwBj/0QsOzqegb3rGMMeJiSEu5xLHnYfBrRV4RH2+OCSOO95Is/7x1WJ4bw==}
     engines: {node: '>=10'}
     dependencies:
-      semver: 7.5.3
+      semver: 7.5.4
     dev: true
 
   /map-stream@0.1.0:
@@ -3649,6 +3711,10 @@ packages:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
     dev: true
 
+  /ramda@0.29.0:
+    resolution: {integrity: sha512-BBea6L67bYLtdbOqfp8f58fPMqEwx0doL+pAi8TZyp2YWz8R9G8z9x75CZI8W+ftqhFHCpEX2cRnUUXK130iKA==}
+    dev: false
+
   /rc9@2.1.1:
     resolution: {integrity: sha512-lNeOl38Ws0eNxpO3+wD1I9rkHGQyj1NU1jlzv4go2CtEnEQEUfqnIvZG7W+bC/aXdJ27n5x/yUjb6RoT9tko+Q==}
     dependencies:
@@ -4130,7 +4196,7 @@ packages:
     dependencies:
       '@istanbuljs/schema': 0.1.3
       glob: 7.1.4
-      minimatch: 3.0.5
+      minimatch: 3.1.2
     dev: true
 
   /text-table@0.2.0:
@@ -4184,6 +4250,9 @@ packages:
 
   /ts-pattern@5.0.4:
     resolution: {integrity: sha512-D5iVliqugv2C9541W2CNXFYNEZxr4TiHuLPuf49tKEdQFp/8y8fR0v1RExUvXkiWozKCwE7zv07C6EKxf0lKuQ==}
+
+  /ts-toolbelt@9.6.0:
+    resolution: {integrity: sha512-nsZd8ZeNUzukXPlJmTBwUAuABDe/9qtVDelJeT/qW0ow3ZS3BsQJtNkan1802aM9Uf68/Y8ljw86Hu0h5IUW3w==}
 
   /tsc-alias@1.8.7:
     resolution: {integrity: sha512-59Q/zUQa3miTf99mLbSqaW0hi1jt4WoG8Uhe5hSZJHQpSoFW9eEwvW7jlKMHXWvT+zrzy3SN9PE/YBhQ+WVydA==}
@@ -4314,6 +4383,12 @@ packages:
       types-eslintrc: 1.0.3
       types-json: 1.2.2
     dev: false
+
+  /types-ramda@0.29.4:
+    resolution: {integrity: sha512-XO/820iRsCDwqLjE8XE+b57cVGPyk1h+U9lBGpDWvbEky+NQChvHVwaKM05WnW1c5z3EVQh8NhXFmh2E/1YazQ==}
+    dependencies:
+      ts-toolbelt: 9.6.0
+    dev: true
 
   /types-tsconfig@2.0.2:
     resolution: {integrity: sha512-La7awO5Ge1y9Ew/puVOtm7uZW9hLAGCTSY1F/7guQ7t6oaOvPmeKOcfdVVctjeVj+5S2J6esH8qwVW0eI7rQyQ==}

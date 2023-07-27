@@ -1,0 +1,59 @@
+{
+  "name": "@niamori/manipulator.core",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "author": "NiaMori <Hellc5261@gmail.com> (https://github.com/niamori)",
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "require": "./dist/esm/src/index.js",
+      "import": "./dist/esm/src/index.js"
+    },
+    "./*": {
+      "dev:@niamori/manipulator.core": "./src/*.js",
+      "require": "./dist/esm/src/*.js",
+      "import": "./dist/esm/src/*.js"
+    }
+  },
+  "main": "./dist/esm/src/index.js",
+  "module": "./dist/esm/src/index.js",
+  "types": "index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/esm/src/*"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup --config rollup.config.ts --configPlugin typescript",
+    "dev": "pnpm build --watch",
+    "test": "vitest --run --coverage",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "@niamori/eslint-config": "^0.0.3",
+    "@niamori/rollup-config": "^0.1.2",
+    "@types/node": "^20.4.4",
+    "@types/ramda": "^0.29.3",
+    "@vitest/coverage-v8": "^0.33.0",
+    "@vitest/ui": "^0.33.0",
+    "eslint": "^8.45.0",
+    "rollup": "^3.26.3",
+    "typescript": "^5.1.6",
+    "vitest": "^0.33.0"
+  },
+  "dependencies": {
+    "immer": "^10.0.2",
+    "ramda": "^0.29.0",
+    "ts-pattern": "^5.0.4",
+    "ts-toolbelt": "^9.6.0",
+    "types-pkg-json": "^1.2.1",
+    "types-tsconfig": "^2.0.2",
+    "@niamori/manipulator.json": "0.0.0"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "lib": ["ESNext"],
+
+    "module": "NodeNext",
+    "rootDir": ".",
+    "moduleResolution": "NodeNext",
+    "types": ["node", "vitest/importMeta"],
+    "customConditions": ["dev:@niamori/manipulator.core"],
+
+    "allowJs": false,
+
+    "noEmit": true,
+
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "preserveSymlinks": false,
+    "forceConsistentCasingInFileNames": true,
+
+    "strict": true,
+
+    "skipLibCheck": true
+  },
+
+  "include": ["src", "rollup.config.ts", "vitest.config.ts", "test"]
+}
