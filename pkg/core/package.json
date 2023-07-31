@@ -43,7 +43,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@niamori/manipulator.json": "0.0.0",
+    "@niamori/manipulator.json": "0.2.0",
     "immer": "^10.0.2",
     "ramda": "^0.29.0",
     "ts-pattern": "^5.0.4",
