@@ -11,7 +11,7 @@
     "dev": "nx run-many --target=dev --output-style=stream",
     "lint": "nx run-many --target=lint",
     "test": "nx run-many --target=test",
-    "bump": "bumpp package.json ./pkg/*/package.json --no-push --execute 'syncpack fix-mismatches --filter @niamori/shivvie.*'",
+    "bump": "bumpp package.json ./pkg/*/package.json --no-push --execute 'syncpack fix-mismatches --filter @niamori/manipulator.*'",
     "release": "pnpm bump && pnpm build && pnpm m exec npm publish"
   },
   "devDependencies": {
