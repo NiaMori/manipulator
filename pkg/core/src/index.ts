@@ -39,9 +39,47 @@ export function manipulator(type: keyof Manipulator): F.Curry<(recipe: (dr: Draf
   })
 }
 
+function textToLines(input: string) {
+  const trailingEmptyLines = input.match(/\n+$/)?.[0] ?? ''
+  const inputWithoutTrailingEmptyLines = input.slice(0, input.length - trailingEmptyLines.length)
+  const leadingEmptyLines = inputWithoutTrailingEmptyLines.match(/^\n+/)?.[0] ?? ''
+  const content = inputWithoutTrailingEmptyLines.slice(leadingEmptyLines.length)
+
+  const lines = []
+  for (let i = 0; i < leadingEmptyLines.length; i++) {
+    lines.push('')
+  }
+
+  if (content.length > 0) {
+    lines.splice(lines.length, 0, ...content.split('\n'))
+  }
+
+  for (let i = 1; i < trailingEmptyLines.length; i++) {
+    lines.push('')
+  }
+
+  return lines
+}
+
 function manipulateLines(input: string, recipe: (dr: Draft<string[]>) => void) {
   const lines = input.endsWith('\n') ? input.split('\n').slice(0, -1) : input.split('\n')
   const finalLines = produce(lines, recipe)
   const finalText = `${finalLines.join('\n')}\n`
   return finalText
+}
+
+if (import.meta.vitest) {
+  const { describe, it, expect } = import.meta.vitest
+  describe('manipulateLines.internal.toLiens', () => {
+    it('should pass the cases', () => {
+      expect(textToLines('a\nb\nc')).toEqual(['a', 'b', 'c'])
+      expect(textToLines('a\nb\nc\n')).toEqual(['a', 'b', 'c'])
+      expect(textToLines('a\nb\nc\n\n')).toEqual(['a', 'b', 'c', ''])
+      expect(textToLines('\n')).toEqual([])
+      expect(textToLines('\na')).toEqual(['', 'a'])
+      expect(textToLines('\na\n')).toEqual(['', 'a'])
+      expect(textToLines('\n\na\n')).toEqual(['', '', 'a'])
+      expect(textToLines('')).toEqual([])
+    })
+  })
 }
