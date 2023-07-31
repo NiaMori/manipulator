@@ -1,7 +1,7 @@
 {
   "name": "@niamori/manipulator.core",
   "type": "module",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "author": "NiaMori <Hellc5261@gmail.com> (https://github.com/niamori)",
   "license": "MIT",
   "homepage": "https://github.com/niamori/manipulator/pkg/core",
@@ -43,7 +43,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@niamori/manipulator.json": "0.2.0",
+    "@niamori/manipulator.json": "0.2.2",
     "immer": "^10.0.2",
     "ramda": "^0.29.0",
     "ts-pattern": "^5.0.4",
