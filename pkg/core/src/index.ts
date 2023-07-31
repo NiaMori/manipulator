@@ -62,7 +62,7 @@ function textToLines(input: string) {
 }
 
 function manipulateLines(input: string, recipe: (dr: Draft<string[]>) => void) {
-  const lines = input.endsWith('\n') ? input.split('\n').slice(0, -1) : input.split('\n')
+  const lines = textToLines(input)
   const finalLines = produce(lines, recipe)
   const finalText = `${finalLines.join('\n')}\n`
   return finalText
